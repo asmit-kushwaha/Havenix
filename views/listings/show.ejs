@@ -101,12 +101,15 @@
 
                                 </div>
 
-                               <!-- if(currUser._id.equals(review.author._id)) { -->
-                                    <form class="mb-3" method="POST"
-                                        action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE">
-                                        <button class="btn btn-small btn-dark">Delete</button>
-                                    </form>
-                                    <!-- } -->
+                                <% if (currUser && currUser._id && review.author && review.author._id) { %>
+                                    <% if (currUser._id.equals(review.author._id)) { %>
+                                        <form class="mb-3" method="POST"
+                                            action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE">
+                                            <button class="btn btn-small btn-dark">Delete</button>
+                                        </form>
+                                    <% } %>
+                                <% } %>
+                                
                             </div>
 
                             <%}%>
